@@ -6,9 +6,7 @@
         {
             Console.WriteLine("Enter your name:");
             string name = Console.ReadLine();
-            Console.WriteLine("Enter your surname:");
-            string surname = Console.ReadLine();
-            Console.WriteLine("Nice to meet you {0} {1}", name, surname);
+            Console.WriteLine("Nice to meet you {0}", name);
         }
     }
 }
