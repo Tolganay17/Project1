@@ -1,6 +1,7 @@
 ﻿
 
 using Project1.Task3_homework;
+using Project1.Task4_homework;
 
 namespace Project1
 {
@@ -13,6 +14,7 @@ namespace Project1
             Console.WriteLine("Nice to meet you {0}", name);
             Console.WriteLine("iTechArt:))");
             Task3.Runner();
+            Task4.Runner();
         }
     }
 }
