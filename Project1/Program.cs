@@ -1,4 +1,8 @@
-﻿namespace Project1
+﻿
+
+using Project1.Task3_homework;
+
+namespace Project1
 {
     internal class Program
     {
@@ -8,6 +12,7 @@
             string name = Console.ReadLine();
             Console.WriteLine("Nice to meet you {0}", name);
             Console.WriteLine("iTechArt:))");
+            Task3.Runner();
         }
     }
 }
