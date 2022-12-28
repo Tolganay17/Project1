@@ -1,8 +1,5 @@
-#ignoring all files with these extension
 *.docx
 *.txt
-#except these files
 !2.txt
 !5.txt
-#ignore all files in this directory
-SomeIgnoredFiles3/**
+SomeIgnoredFiles3/
