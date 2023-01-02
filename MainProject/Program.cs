@@ -9,6 +9,8 @@ namespace MainProject
             
             Employee[] employees = new Employee[] {  };
             Employee em = new Employee();
+           
+
 
             Factory factory= new Factory(employees ,"boba");
 
@@ -32,17 +34,16 @@ namespace MainProject
 
                         Console.WriteLine(factory.numOfEmp());
                         Console.WriteLine("");
-                        em.getAllInfoEmp();
                         break;
                     case 2:
                         factory.getEmpFL();
                         break;
                     case 3:
                         {
-                            Console.WriteLine("Write the position");
+                            Console.WriteLine("Write the position: teacher? lawyer? actor?");
                             string pos = Console.ReadLine();
                             factory.getByPos(pos);
-
+                           
                             break;
                         }
                     case 4:
@@ -51,7 +52,7 @@ namespace MainProject
                             string fn = Console.ReadLine();
                             Console.WriteLine("Write last name:");
                             string sn = Console.ReadLine();
-                            Console.WriteLine("Write the position:");
+                            Console.WriteLine("Write the position: teacher? lawyer? actor?");
                             string ps = Console.ReadLine();
                             Console.WriteLine("Write age:");
                             int age = int.Parse(Console.ReadLine());

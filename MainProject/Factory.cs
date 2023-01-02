@@ -7,15 +7,15 @@ using System.Threading.Tasks;
 
 namespace MainProject
 {
-    internal class Factory
+    public class Factory
     {
         public string factoryName;
-    
-       
-
         public Employee[] employees = new Employee[] { };
-    
-     
+        Actor ac = new Actor();
+        Teacher te = new Teacher();
+        Lawyer la = new Lawyer();
+
+
 
         public Factory() { }
         public Factory(Employee[] employees, string factoryName)
@@ -36,7 +36,7 @@ namespace MainProject
             {
                 foreach (var item in employees)
                 {
-                    Console.WriteLine("First name: " + item.firstName + "--- " + "Last name:" + item.lastName);
+                    Console.WriteLine("First name: " + item.FirstName + "--- " + "Last name:" + item.LastName);
                 }
             }
             else
@@ -50,9 +50,26 @@ namespace MainProject
         {
             foreach (var item in employees)
             {
-                if (item.position == pos)
+                if (item.Position == pos)
                 {
-                    Console.WriteLine("{0}-- Full Name: {1} {2} ", pos, item.firstName, item.lastName);
+                    Console.WriteLine("{0}-- Full Name: {1} {2} ", pos, item.FirstName, item.LastName);
+                    if (pos == "teacher")
+                    {
+                        Console.WriteLine(te.simWork());
+                    }
+                    else if (pos == "actor")
+                    {
+                        Console.WriteLine(ac.simWork());
+                    }
+                    else if (pos == "lawyer")
+                    {
+                        Console.WriteLine(la.simWork());
+                    }
+                    else
+                    {
+                        Console.WriteLine("Employeee was not found");
+                    }
+
                 }
                 else
                 {
@@ -61,6 +78,7 @@ namespace MainProject
             }
 
         }
+        
         public void addEmp(string firstName, string lastName, string position, int age)
         {
             var arr= employees.ToList();
