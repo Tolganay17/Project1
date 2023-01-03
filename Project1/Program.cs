@@ -9,12 +9,23 @@ namespace Project1
     {
         static void Main(string[] args)
         {
+<<<<<<< Updated upstream
             Console.WriteLine("Enter your name:");
             string name = Console.ReadLine();
             Console.WriteLine("Nice to meet you {0}", name);
             Console.WriteLine("iTechArt:))");
             Task3.Runner();
             Task4.Runner();
+=======
+            // Console.WriteLine("Enter your name:");
+            //string name = Console.ReadLine();
+            //Console.WriteLine("Nice to meet you {0}", name);
+            //Console.WriteLine("iTechArt:))");
+            //Task3.Runner();
+            Task4.Runner();
+            //Runner1.Runner();
+            //Interfaces.Runner();
+>>>>>>> Stashed changes
         }
     }
 }
