@@ -61,31 +61,6 @@ namespace MainProject
                 }
             }
         }
-        /*if (pos == "teacher")
-        {
-            Console.WriteLine(te.SimWork());
-        }
-        else if (pos == "actor")
-        {
-            Console.WriteLine(ac.SimWork());
-        }
-        else if (pos == "lawyer")
-        {
-            Console.WriteLine(la.SimWork());
-        }
-        else
-        {
-            Console.WriteLine("Employeee was not found");
-        }
-     }else
-    {
-        Console.WriteLine("Employee was not found");
-    }
-}
-
-}
-        */
-
         public void addEmp(string firstName, string lastName, string position, int age)
         {
             var arr = employees.ToList();
@@ -94,7 +69,5 @@ namespace MainProject
             employees = arr.ToArray();
             Console.WriteLine("Employee is added");
         }
-
-
     }
 }

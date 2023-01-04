@@ -43,8 +43,6 @@
             this._position = position;
             this._age = age;
         }
-
-
         public void getAllInfoEmp()
         {
             Console.WriteLine($"First name: {FirstName}");
