@@ -9,15 +9,12 @@ namespace Project1.Task7_2_homework
      class MobilePhone : Electro, Interface
     {
         private double numberOfPixelsInCamera;
-      
-
         public MobilePhone(double numberOfPixelsInCamera, string? modelName, decimal price)
         {
             this.numberOfPixelsInCamera = numberOfPixelsInCamera;
             this.modelName = modelName;
             this.price = price;
         }
-
         public override string Description
         {
             get
@@ -25,7 +22,6 @@ namespace Project1.Task7_2_homework
                 return $"Price: {price}, model:{modelName}, number of pixels in camera: {numberOfPixelsInCamera}";
             }
         }
-
         public void TakePhoto()
         {
             Console.WriteLine("Press button on the screen and photo is ready");

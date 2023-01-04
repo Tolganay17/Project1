@@ -63,7 +63,7 @@ namespace EmpLib
          
             }
         
-         public virtual string simWork()
+         public virtual string SimWork()
         {
             return "I'm working!";
         }
@@ -74,21 +74,21 @@ namespace EmpLib
 
     public class Teacher : Employee
     {
-        public override string simWork()
+        public override string SimWork()
         {
             return "teacher is working!";
         }
     }
     public class Actor : Employee
     {
-        public override string simWork()
+        public override string SimWork()
         {
             return "actor is working!";
         }
     }
     public class Lawyer : Employee
     {
-        public override string simWork()
+        public override string SimWork()
         {
             return "lawyer is working!";
         }

@@ -10,7 +10,7 @@ namespace Project1.Task7_2_homework
     {
         private int paperWidth;
         private int paperHeight;
-       
+
         public Printer(string? modelName, decimal price, int paperWidth, int paperHeight)
         {
             this.modelName = modelName;

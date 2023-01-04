@@ -11,6 +11,5 @@ namespace Project1.Task7_2_homework
         protected string? modelName;
         protected decimal price;
         public abstract string Description { get; }
-
     }
 }

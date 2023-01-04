@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Project1.Task7_2_homework
 {
-   interface Interface
-    { 
+    interface Interface
+    {
         void TurnOn();
         void TurnOff();
     }

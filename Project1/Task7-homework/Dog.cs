@@ -95,7 +95,7 @@ namespace Project1.Task7_homework
         }
         public void PitbullAge()
         {
-            Console.WriteLine($"Pitbill is {Age} years old", );
+            Console.WriteLine($"Pitbill is {Age} years old");
         }
 
     }

@@ -11,8 +11,6 @@ namespace Project1.Task7_2_homework
         private int paperWidth;
         private int paperHeight;
         private double numberOfPixelsInCamera;
-        
-
         public Polaroid(int paperWidth, int paperHeight, double numberOfPixelsInCamera, string? modelName, decimal price)
         {
             this.paperWidth = paperWidth;
@@ -21,7 +19,6 @@ namespace Project1.Task7_2_homework
             this.modelName = modelName;
             this.price = price;
         }
-
         public override string Description
         {
             get
