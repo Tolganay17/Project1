@@ -10,17 +10,16 @@ namespace Project1.Task7_homework
     {
         public static void Runner()
         {
-
-            Bulldog b = new Bulldog("Bulldog");
+            var b = new Bulldog("Bulldog");
             b.SayBreed();
             b.Color = "blue";
             b.BulColor();
 
-            Pitbull p = new Pitbull("Pitbull", 13);
+            var p = new Pitbull("Pitbull", 13);
             p.SayBreed();
             p.PitbullAge();
 
-            Chao c = new Chao("Chao",3);
+            var c = new Chao("Chao",3);
             c.SayBreed();
             c.ChaoTails();
 
@@ -34,7 +33,6 @@ namespace Project1.Task7_homework
             this.breedName = breedName;
         }
         public abstract string BreedName { get; set; }
-
         public abstract void SayBreed();
         public void Hello() { Console.WriteLine("Hello!"); }
 
@@ -43,12 +41,10 @@ namespace Project1.Task7_homework
     {
         private string color;
         public string Color { get; set; }
-        private int age;
 
         public Bulldog(string breedName) : base(breedName)
         { this.breedName= breedName;
         }
-
         public override string BreedName {
             get
             {
@@ -62,11 +58,11 @@ namespace Project1.Task7_homework
 
         public override void SayBreed()
         {
-            Console.WriteLine("I am {0}",BreedName);
+            Console.WriteLine($"I am {BreedName}");
         }
         public void BulColor()
         {
-            Console.WriteLine("my color is {0}", Color);
+            Console.WriteLine($"my color is {Color}");
         }
 
     }
@@ -95,25 +91,22 @@ namespace Project1.Task7_homework
 
         public override void SayBreed()
         {
-            Console.WriteLine("I am {0}", BreedName);
+            Console.WriteLine($"I am {BreedName}");
         }
         public void PitbullAge()
         {
-            Console.WriteLine("Pitbill is {0} years old", Age);
+            Console.WriteLine($"Pitbill is {Age} years old", );
         }
 
     }
     class Chao : Dog
     {
         private int numTails;
-
         public int NumTails
         {
             get { return numTails; }
             set { numTails = value; }
         }
-
-
         public Chao(string breedName, int tails) : base(breedName)
         {
             this.breedName = breedName;
@@ -131,14 +124,13 @@ namespace Project1.Task7_homework
                 breedName = value;
             }
         }
-
         public override void SayBreed()
         {
-            Console.WriteLine("I am {0}", BreedName);
+            Console.WriteLine($"I am {BreedName}");
         }
         public void ChaoTails()
         {
-            Console.WriteLine("Chao has {0} tails", NumTails);
+            Console.WriteLine($"Chao has {NumTails} tails");
         }
 
     }

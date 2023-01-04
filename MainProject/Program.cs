@@ -9,9 +9,6 @@ namespace MainProject
             
             Employee[] employees = new Employee[] {  };
             Employee em = new Employee();
-           
-
-
             Factory factory= new Factory(employees ,"boba");
 
             bool done = false;
