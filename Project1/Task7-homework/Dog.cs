@@ -28,24 +28,28 @@ namespace Project1.Task7_homework
     abstract class Dog
     {
         protected string _breedName;
+
         public Dog(string breedName)
         {
             this._breedName = breedName;
         }
         public abstract string BreedNameP { get; set; }
-        public void SayBreed() => Console.WriteLine($"I am {BreedNameP}");
-        public void Hello() => Console.WriteLine("Hello!");
 
+        public void SayBreed() => Console.WriteLine($"I am {BreedNameP}");
+
+        public void Hello() => Console.WriteLine("Hello!");
     }
     class Bulldog : Dog
     {
         private string _color;
+
         public string Color { get; set; }
 
         public Bulldog(string breedName) : base(breedName)
         {
             this._breedName = breedName;
         }
+
         public override string BreedNameP
         {
             get
@@ -60,6 +64,7 @@ namespace Project1.Task7_homework
 
         public void BulColor() => Console.WriteLine($"my color is {Color}");
     }
+
     class Pitbull : Dog
     {
         private int _age;
@@ -82,17 +87,19 @@ namespace Project1.Task7_homework
                 _breedName = value;
             }
         }
-
         public void PitbullAge() => Console.WriteLine($"Pitbill is {Age} years old");
     }
+
     class Chao : Dog
     {
         private int _numTails;
+
         public int NumTails
         {
             get { return _numTails; }
             set { _numTails = value; }
         }
+
         public Chao(string breedName, int tails) : base(breedName)
         {
             this._breedName = breedName;
@@ -110,7 +117,6 @@ namespace Project1.Task7_homework
                 _breedName = value;
             }
         }
-
         public void ChaoTails() => Console.WriteLine($"Chao has {NumTails} tails");
     }
 }
