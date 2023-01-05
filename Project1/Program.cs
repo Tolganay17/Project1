@@ -19,7 +19,7 @@ namespace Project1
             //Task4.Runner();
             //Runner1.Runner();
             // Interfaces.Runner();
-            Task82.Runner();
+            Task8.Runner();
         }
     }
 }

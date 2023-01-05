@@ -17,19 +17,18 @@ namespace Project1.Task8_homework
             }
             catch (IndexOutOfRangeException ex)
             {
-                Console.WriteLine(ex.Message);
-                Console.WriteLine(ex.StackTrace);
+                ExceptionMethod(ex);
             }
             catch (FormatException ex)
             {
-                Console.WriteLine(ex.Message);
-                Console.WriteLine(ex.StackTrace);
+                ExceptionMethod(ex);
             }
-            catch (ArgumentNullException ex)
-            {
-                Console.WriteLine(ex.Message);
-                Console.WriteLine(ex.StackTrace);
-            }
+        }
+
+        public static void ExceptionMethod(Exception e)
+        {
+            Console.WriteLine(e.Message);
+            Console.WriteLine(e.StackTrace);
         }
         public static void ShowMassiveElement()
         {
@@ -38,10 +37,19 @@ namespace Project1.Task8_homework
                 int[] massive = { 8, 7, 1, 4, 2 };
                 Console.WriteLine("Input index of element in massive:");
                 string? inputedValue = Console.ReadLine();
-                string? checkedValue = inputedValue.Equals(string.Empty) ? null : inputedValue;
-                int inputtedNumber = Int32.Parse(checkedValue);
-                int massiveElement = massive[inputtedNumber];
-                Console.WriteLine($"Massive element that has index {inputedValue} has value {massiveElement}");
+                if (!string.IsNullOrEmpty(inputedValue))
+                 {
+                    string? checkedValue = inputedValue;
+                    int inputtedNumber = int.Parse(checkedValue);
+                    int massiveElement = massive[inputtedNumber];
+                    Console.WriteLine($"Massive element that has index {inputedValue} has value {massiveElement}");
+                }
+                else
+                {
+                    Console.WriteLine("Empty string");
+                }
+                
+
             } catch(Exception ex)
             {
                 throw;

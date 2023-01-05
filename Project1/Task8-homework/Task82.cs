@@ -13,6 +13,7 @@ namespace Project1.Task8_homework
             try
             {
                 AgeChecker();
+
             }catch(CustomException ex)
             {
                 Console.WriteLine(ex.Message);
@@ -27,6 +28,7 @@ namespace Project1.Task8_homework
             {
                 throw new CustomException();
             }
+
             Console.WriteLine("Welcome!");
         }
     }
