@@ -15,6 +15,7 @@ namespace Project1
             Console.WriteLine("iTechArt:))");
             Task3.Runner();
             Task4.Runner();
+            Task4.Runner();
         }
     }
 }
