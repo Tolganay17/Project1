@@ -6,39 +6,22 @@ using System.Threading.Tasks;
 
 namespace Project1.Task7_2_homework
 {
-     class MobilePhone : Electro, Interface
+    class MobilePhone : Electro, Interface
     {
-        private double numberOfPixelsInCamera;
-      
+        private double _numberOfPixelsInCamera;
 
         public MobilePhone(double numberOfPixelsInCamera, string? modelName, decimal price)
         {
-            this.numberOfPixelsInCamera = numberOfPixelsInCamera;
-            this.modelName = modelName;
-            this.price = price;
+            this._numberOfPixelsInCamera = numberOfPixelsInCamera;
+            this._modelName = modelName;
+            this._price = price;
         }
 
-        public override string Description
-        {
-            get
-            {
-                return $"Price: {price}, model:{modelName}, number of pixels in camera: {numberOfPixelsInCamera}";
-            }
-        }
+        public override string Description => $"Price: {_price}, model:{_modelName}, number of pixels in camera: {_numberOfPixelsInCamera}";
 
-        public void TakePhoto()
-        {
-            Console.WriteLine("Press button on the screen and photo is ready");
-        }
+        public void TakePhoto() => Console.WriteLine("Press button on the screen and photo is ready");
 
-        public void TurnOn()
-        {
-            Console.WriteLine("Press left side button");
-        }
+        public void TurnOn() => Console.WriteLine("Press left side button");
 
-        public void TurnOff()
-        {
-            Console.WriteLine("Press Turn Off button");
-        }
     }
 }

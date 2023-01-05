@@ -8,9 +8,11 @@ namespace Project1.Task7_2_homework
 {
     abstract class Electro
     {
-        protected string? modelName;
-        protected decimal price;
+        protected string? _modelName;
+        protected decimal _price;
+
         public abstract string Description { get; }
 
+        public void TurnOff() => Console.WriteLine("Press Turn Off button");
     }
 }

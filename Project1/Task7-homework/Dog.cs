@@ -19,7 +19,7 @@ namespace Project1.Task7_homework
             p.SayBreed();
             p.PitbullAge();
 
-            var c = new Chao("Chao",3);
+            var c = new Chao("Chao", 3);
             c.SayBreed();
             c.ChaoTails();
 
@@ -27,111 +27,90 @@ namespace Project1.Task7_homework
     }
     abstract class Dog
     {
-        protected string breedName;
+        protected string _breedName;
         public Dog(string breedName)
         {
-            this.breedName = breedName;
+            this._breedName = breedName;
         }
-        public abstract string BreedName { get; set; }
-        public abstract void SayBreed();
-        public void Hello() { Console.WriteLine("Hello!"); }
+        public abstract string BreedNameP { get; set; }
+        public void SayBreed() => Console.WriteLine($"I am {BreedNameP}");
+        public void Hello() => Console.WriteLine("Hello!");
 
     }
     class Bulldog : Dog
     {
-        private string color;
+        private string _color;
         public string Color { get; set; }
 
         public Bulldog(string breedName) : base(breedName)
-        { this.breedName= breedName;
+        {
+            this._breedName = breedName;
         }
-        public override string BreedName {
+        public override string BreedNameP
+        {
             get
             {
-                return breedName;
+                return _breedName;
             }
             set
             {
-                breedName = value;
+                _breedName = value;
             }
         }
 
-        public override void SayBreed()
-        {
-            Console.WriteLine($"I am {BreedName}");
-        }
-        public void BulColor()
-        {
-            Console.WriteLine($"my color is {Color}");
-        }
-
+        public void BulColor() => Console.WriteLine($"my color is {Color}");
     }
     class Pitbull : Dog
     {
-        private int age;
+        private int _age;
         public int Age { get; set; }
 
         public Pitbull(string breedName, int age) : base(breedName)
         {
-            this.breedName = breedName;
+            this._breedName = breedName;
             Age = age;
         }
 
-        public override string BreedName
+        public override string BreedNameP
         {
             get
             {
-                return breedName;
+                return _breedName;
             }
             set
             {
-                breedName = value;
+                _breedName = value;
             }
         }
 
-        public override void SayBreed()
-        {
-            Console.WriteLine($"I am {BreedName}");
-        }
-        public void PitbullAge()
-        {
-            Console.WriteLine($"Pitbill is {Age} years old", );
-        }
-
+        public void PitbullAge() => Console.WriteLine($"Pitbill is {Age} years old");
     }
     class Chao : Dog
     {
-        private int numTails;
+        private int _numTails;
         public int NumTails
         {
-            get { return numTails; }
-            set { numTails = value; }
+            get { return _numTails; }
+            set { _numTails = value; }
         }
         public Chao(string breedName, int tails) : base(breedName)
         {
-            this.breedName = breedName;
-            numTails = tails;
+            this._breedName = breedName;
+            _numTails = tails;
         }
 
-        public override string BreedName
+        public override string BreedNameP
         {
             get
             {
-                return breedName;
+                return _breedName;
             }
             set
             {
-                breedName = value;
+                _breedName = value;
             }
         }
-        public override void SayBreed()
-        {
-            Console.WriteLine($"I am {BreedName}");
-        }
-        public void ChaoTails()
-        {
-            Console.WriteLine($"Chao has {NumTails} tails");
-        }
 
+        public void ChaoTails() => Console.WriteLine($"Chao has {NumTails} tails");
     }
 }
