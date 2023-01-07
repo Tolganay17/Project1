@@ -17,9 +17,14 @@ namespace Project1
             //Console.WriteLine("iTechArt:))");
             //Task3.Runner();
             //Task4.Runner();
+<<<<<<< HEAD
             //Runner1.Runner();
             // Interfaces.Runner();
             Task8.Runner();
+=======
+            Runner1.Runner();
+           // Interfaces.Runner();
+>>>>>>> master
         }
     }
 }
