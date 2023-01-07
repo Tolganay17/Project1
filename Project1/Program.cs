@@ -4,6 +4,7 @@ using Project1.Task3_homework;
 using Project1.Task4_homework;
 using Project1.Task7_homework;
 using Project1.Task8_homework;
+using Project1.task9_homework;
 
 namespace Project1
 {
@@ -11,9 +12,16 @@ namespace Project1
     {
         static void Main(string[] args)
         {
-           // Task8.Runner();
-            task9_homework.Run.Runner();
 
+            // Console.WriteLine("Enter your name:");
+            //string name = Console.ReadLine();
+            //Console.WriteLine("Nice to meet you {0}", name);
+            //Console.WriteLine("iTechArt:))");
+            //Task3.Runner();
+            //Task4.Runner();
+            //Runner1.Runner();
+            // Interfaces.Runner();
+            Run.Runner();
         }
     }
 }
