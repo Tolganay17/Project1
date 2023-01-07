@@ -1,79 +1,94 @@
-﻿namespace EmpLib
+﻿using System.Reflection.Metadata.Ecma335;
+
+namespace EmpLib
 {
     public class Employee
     {
-        private string _firstName;
+       
+        private string firstName;
+
         public string FirstName
         {
-            get { return _firstName; }
-            set { _firstName = value; }
+            get { return firstName; }
+            set { firstName = value; }
         }
 
-        private string _lastName;
+        private string lastName;
+
         public string LastName
         {
-            get { return _lastName; }
-            set { _lastName = value; }
+            get { return lastName; }
+            set { lastName = value; }
         }
 
-        private string _position;
+        private string position;
+
         public string Position
         {
-            get { return _position; }
-            set { _position = value; }
+            get { return position; }
+            set { position = value; }
         }
 
-        private int _age;
+        private int age;
+
         public int Age
         {
-            get { return _age; }
-            set { _age = value; }
+            get { return age; }
+            set { age = value; }
         }
 
         public Employee() { }
         public Employee(string firstName)
-        {
-            this._firstName = firstName;
+        { 
+            this.firstName = firstName;
         }
 
         public Employee(string firstName, string lastName, string position, int age)
         {
-            this._firstName = firstName;
-            this._lastName = lastName;
-            this._position = position;
-            this._age = age;
-        }
-        public void getAllInfoEmp()
-        {
-            Console.WriteLine($"First name: {FirstName}");
-            Console.WriteLine($"Last name: {LastName}");
-            Console.WriteLine($"Position: {Position}");
-            Console.WriteLine($"Age: {Age}");
+            this.firstName = firstName;
+            this.lastName = lastName;
+            this.position = position;
+            this.age = age;
+         
+              
         }
 
-        public virtual string SimWork()
+        
+        public void getAllInfoEmp() 
+        {
+           Console.WriteLine("First name: {0}", FirstName);
+           Console.WriteLine("Last name: {0}",LastName);
+           Console.WriteLine("Position: {0}", Position);
+           Console.WriteLine("Age: {0}", Age);
+         
+            }
+        
+         public virtual string simWork()
         {
             return "I'm working!";
         }
+
+
+      
     }
 
     public class Teacher : Employee
     {
-        public override string SimWork()
+        public override string simWork()
         {
             return "teacher is working!";
         }
     }
     public class Actor : Employee
     {
-        public override string SimWork()
+        public override string simWork()
         {
             return "actor is working!";
         }
     }
     public class Lawyer : Employee
     {
-        public override string SimWork()
+        public override string simWork()
         {
             return "lawyer is working!";
         }
