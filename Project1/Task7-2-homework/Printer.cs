@@ -8,8 +8,13 @@ namespace Project1.Task7_2_homework
 {
     class Printer : Electro, Interface
     {
+<<<<<<< HEAD
+        private int paperWidth;
+        private int paperHeight;
+=======
         private int _paperWidth;
         private int _paperHeight;
+>>>>>>> master
 
         public Printer(string? modelName, decimal price, int paperWidth, int paperHeight)
         {
