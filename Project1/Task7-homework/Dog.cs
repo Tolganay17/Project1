@@ -87,20 +87,7 @@ namespace Project1.Task7_homework
                 _breedName = value;
             }
         }
-<<<<<<< HEAD
-
-        public override void SayBreed()
-        {
-            Console.WriteLine($"I am {BreedName}");
-        }
-        public void PitbullAge()
-        {
-            Console.WriteLine($"Pitbill is {Age} years old");
-        }
-
-=======
         public void PitbullAge() => Console.WriteLine($"Pitbill is {Age} years old");
->>>>>>> master
     }
 
     class Chao : Dog

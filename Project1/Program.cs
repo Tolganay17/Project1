@@ -11,20 +11,9 @@ namespace Project1
     {
         static void Main(string[] args)
         {
-            // Console.WriteLine("Enter your name:");
-            //string name = Console.ReadLine();
-            //Console.WriteLine("Nice to meet you {0}", name);
-            //Console.WriteLine("iTechArt:))");
-            //Task3.Runner();
-            //Task4.Runner();
-<<<<<<< HEAD
-            //Runner1.Runner();
-            // Interfaces.Runner();
-            Task8.Runner();
-=======
-            Runner1.Runner();
-           // Interfaces.Runner();
->>>>>>> master
+           // Task8.Runner();
+            task9_homework.Run.Runner();
+
         }
     }
 }

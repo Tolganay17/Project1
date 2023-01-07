@@ -12,10 +12,7 @@ namespace Project1.Task7_2_homework
         protected decimal _price;
 
         public abstract string Description { get; }
-<<<<<<< HEAD
-=======
 
         public void TurnOff() => Console.WriteLine("Press Turn Off button");
->>>>>>> master
     }
 }
