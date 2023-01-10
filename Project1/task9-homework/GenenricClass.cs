@@ -73,21 +73,12 @@ namespace Project1.task9_homework
 
             for (int i = 0; i < _size; i++)
             {
-                if (_myArray[i] is Man)
+                var text = _myArray[i] is Man ? "There are only man" : "There are only woman";
+                Console.WriteLine(_myArray[i].ToString());
+
+                if (_count == _size - 1)
                 {
-                    Console.WriteLine(_myArray[i].ToString());
-                    if (_count == _size - 1)
-                    {
-                        Console.WriteLine("There are only man \n");
-                    }
-                }
-                else if (_myArray[i] is Woman)
-                {
-                    Console.WriteLine(_myArray[i].ToString());
-                    if (_count == _size - 1)
-                    {
-                        Console.WriteLine("There are only woman\n");
-                    }
+                    Console.WriteLine($"{text}\n");
                 }
                 _count++;
             }
