@@ -4,9 +4,12 @@ using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics.Metrics;
+using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml;
 using System.Xml.Linq;
 
 namespace Project1.Task10_homework
@@ -17,7 +20,7 @@ namespace Project1.Task10_homework
         {
             //1)Write a method to find the sum of all even numbers in a list.
             Console.WriteLine("List --1--");
-            var myList = new List<int> { 1, 2, 3, 4, 5, 6, 7, 8, 9,10 };
+            var myList = new List<int> { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
             var myListS = new List<string> { "alice", "wonderland", "in", "boku", "kira" };
             SumInt(myList);
 
@@ -31,7 +34,7 @@ namespace Project1.Task10_homework
             Console.WriteLine("List --3--");
             Console.WriteLine("Write the length of word:");
             int length = int.Parse(Console.ReadLine());
-            FindTheWord(myListS,length);
+            FindTheWord(myListS, length);
 
             //Create a LinkedList and two items, insert a second item after each occurrence of the first item in the list.So, if the list is [2,4,3,2,8,2,5,1,2] and the elements are 2 and 10, the result is [2,10,4,3,2,10,8,2,10,5,1,2,10] 
             Console.WriteLine("LinkedList --1--");
@@ -45,13 +48,13 @@ namespace Project1.Task10_homework
             {
                 if (linkedList.ElementAt(i) == a)
                 {
-                    var newNode = linkedList.ElementAt(i); 
-                    initList.Insert(i+1, b);
+                    var newNode = linkedList.ElementAt(i);
+                    initList.Insert(i + 1, b);
                 }
                 i++;
             }
-            int k =initList.Count-1;
-            if (initList.ElementAt(k) == a) 
+            int k = initList.Count - 1;
+            if (initList.ElementAt(k) == a)
             {
                 initList.Add(10);
             }
@@ -73,7 +76,6 @@ namespace Project1.Task10_homework
                         finalList.Add(firstList[j]);
                     }
                 }
-
             }
             foreach (var item in finalList)
             {
@@ -90,13 +92,121 @@ namespace Project1.Task10_homework
             Console.WriteLine("add element ");
             queue.Enqueue(int.Parse(Console.ReadLine()));
 
+            queue = new Queue<int>(queue.OrderBy(q => q));
+            reverseQueue(queue);
+            GetMaxValue(queue);
+            Console.WriteLine("Before deletion:");
+
             foreach (var it in queue)
             {
                 Console.WriteLine(it);
             }
 
+            DeleteMaxValue(queue);
+            Console.WriteLine("After deletion:");
 
+            foreach (var it in queue)
+            {
+                Console.WriteLine(it);
+            }
+            GetMaxValue(queue);
+
+            //Write a program that takes three letters as input and displays them in reverse order. Use Stack.
+            Console.WriteLine("---stack---");
+            var myStack = new Stack<int>();
+            Console.WriteLine("Enter values:");
+            Console.WriteLine("First value:");
+            myStack.Push(int.Parse(Console.ReadLine()));
+            Console.WriteLine("Enter the second value:");
+            myStack.Push(int.Parse(Console.ReadLine()));
+            Console.WriteLine("Enter the second value:");
+            myStack.Push(int.Parse(Console.ReadLine()));
+            Console.WriteLine("in reverse order:");
+            foreach (var item in myStack)
+            {
+                Console.WriteLine(item);
+            }
+
+            //Dictionary
+            //Add a new value whose key is your name and whose value is your age. Do this using the Add method.Then addanother value to the dictionary using index notation. This time, use a different name and a different age.Finally, read the first item you added to the dictionary and write it to the console using Console.WriteLine.
+
+            var myDic = new Dictionary<string, int>();
+            myDic.Add("Tolganay", 22);
+            myDic["Alila"] = 22;
+            Console.WriteLine($"key : {myDic.ElementAt(0).Key} ||  value: {myDic.ElementAt(0).Value}");
+
+            //Create two lists, each with 10 values.The first list is of type int, where the values are not in order.the second list is of type string, the values are also not alphabetically specified. Write a method that performs sorting operations on the two lists the int list in ascending and the string list in descending order. Then this method merges the lists into a dictionary.Output the resulting word to the console *
+            var myListF = new List<int>() { 4, 3, 7, 8, 6 };
+            var myListG = new List<string>() { "aka", "maka", "saka", "lola", "kola" };
+            SortMerge(myListF, myListG);
+
+            //            Create a City class where there are fields int population, double area.Create a dictionary where Key is the name of the city and Value is the corresponding name of the cityand the object of type City. Create 5 elements for the dictionary. 
+            //Sort the dictionary by city area and display it on your console
+            //Browse the dictionary by population in reverse order and display it on your console
+            //Count the total population of all cities and output to the console *
+            Dictionary<string, City> myCity = new Dictionary<string, City>();
+            myCity.Add("Oku", new City(23, 456.5));
+            myCity.Add("Aka", new City(34, 345.4));
+            myCity.Add("mika", new City(24, 355.2));
+            myCity.Add("Lala", new City(44, 445.4));
+            myCity.Add("Saka", new City(54, 555.2));
+            var sorted = myCity.OrderBy(x => x.Value.Area);
+            Console.WriteLine("sorted dictionary by area:");
+            foreach (var item in sorted)
+            {
+                Console.WriteLine(item.ToString());
+            }
+            var reversed = myCity.OrderByDescending(x => x.Value.Population);
+            Console.WriteLine("decending order by population");
+            foreach (var item in reversed)
+            {
+                Console.WriteLine(item.ToString());
+            }
+            double sum = myCity.Sum(v => v.Value.Area);
+            Console.WriteLine($"Sum of area:{sum}");
         }
+        public static void SortMerge(List<int> i, List<string> s)
+        {
+            i.Sort();
+            s.Sort();
+            s.Reverse();
+            var dic = new Dictionary<int, string>();
+            foreach (var key in i)
+            {
+                foreach (var value in s)
+                {
+                    dic[key] = value;
+                    s.Remove(value);
+                    break;
+
+                }
+            }
+            foreach (var item2 in dic)
+            {
+                Console.WriteLine(item2);
+            }
+        }
+
+        public static void reverseQueue(Queue<int> q)
+        {
+            if (q.Count == 0)
+                return;
+            int fr = (int)q.Peek();
+            q.Dequeue();
+            reverseQueue(q);
+            q.Enqueue(fr);
+        }
+
+        public static void GetMaxValue(Queue<int> q)
+        {
+            Console.WriteLine("Max element:" + q.Peek());
+        }
+
+        public static void DeleteMaxValue(Queue<int> q)
+        {
+            Console.WriteLine("Max element:" + q.Dequeue());
+        }
+
         public static void SumInt(List<int> list)
         {
             int sum = 0;
@@ -104,15 +214,15 @@ namespace Project1.Task10_homework
             {
                 if (list[i] % 2 == 0)
                 {
-                    sum += list[i];  
+                    sum += list[i];
                 }
-
             }
             Console.WriteLine(sum);
         }
+
         public static void Display(List<int> list)
         {
-            foreach(var item in list)
+            foreach (var item in list)
             {
                 Console.WriteLine(item);
             }
@@ -129,8 +239,5 @@ namespace Project1.Task10_homework
                 }
             }
         }
-
-
-
     }
 }
