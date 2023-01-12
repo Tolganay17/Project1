@@ -26,13 +26,10 @@ namespace Project1.Task10_homework
 
         public City(int population, double area)
         {
-            this._population = population;
-            this._area = area;
+            _population = population;
+            _area = area;
         }
-
-        public override string ToString()
-        {
-            return string.Format($"area: {_area}, population :{_population} ");
-        }
+     
+        public override string ToString() => string.Format($"area: {_area}, population :{_population} ");
     }
 }

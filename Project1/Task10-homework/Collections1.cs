@@ -21,8 +21,8 @@ namespace Project1.Task10_homework
             //1)Write a method to find the sum of all even numbers in a list.
             Console.WriteLine("List --1--");
             var myList = new List<int> { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
-            var myListS = new List<string> { "alice", "wonderland", "in", "boku", "kira" };
-            SumInt(myList);
+            var myListOfStrings = new List<string> { "alice", "wonderland", "in", "boku", "kira" };
+            SumEvenNumbers(myList);
 
             //2) Create a list containing at least 10 integers, call your method, and output the result.
             Console.WriteLine("List --2--");
@@ -34,12 +34,12 @@ namespace Project1.Task10_homework
             Console.WriteLine("List --3--");
             Console.WriteLine("Write the length of word:");
             int length = int.Parse(Console.ReadLine());
-            FindTheWord(myListS, length);
+            FindTheWordByLength(myListOfStrings, length);
 
             //Create a LinkedList and two items, insert a second item after each occurrence of the first item in the list.So, if the list is [2,4,3,2,8,2,5,1,2] and the elements are 2 and 10, the result is [2,10,4,3,2,10,8,2,10,5,1,2,10] 
             Console.WriteLine("LinkedList --1--");
             var initList = new List<int> { 2, 4, 3, 2, 8, 2, 5, 1, 2 };
-            LinkedList<int> linkedList = new LinkedList<int>(initList);
+            var linkedList = new LinkedList<int>(initList);
             int a = 2; int b = 10;
             int i = 0;
             int count = 0;
@@ -48,7 +48,6 @@ namespace Project1.Task10_homework
             {
                 if (linkedList.ElementAt(i) == a)
                 {
-                    var newNode = linkedList.ElementAt(i);
                     initList.Insert(i + 1, b);
                 }
                 i++;
@@ -71,7 +70,7 @@ namespace Project1.Task10_homework
             {
                 for (int l = 0; l < secondList.Count; l++)
                 {
-                    if (firstList[j] == secondList[l])
+                    if (secondList.Contains(firstList[j]))
                     {
                         finalList.Add(firstList[j]);
                     }
@@ -84,16 +83,12 @@ namespace Project1.Task10_homework
 
             //Create a Queue via inputting queue elements into console.Create GetMaxValue() method, which should return the maximum value stored in the queue and not remove this value from the queue. Create DeleteMaxValue() method which find max value in the queue and removes it.Call GetMaxValue() method => confirm it returns max value and not deletes it from the queue.Call DeleteMaxValue () => confirm it deletes max value from the queue.Call GetMaxValue() again and confirm it returns actual max value.
             Console.WriteLine("queue:");
-            Queue<int> queue = new Queue<int>();
-            Console.WriteLine("add element ");
-            queue.Enqueue(int.Parse(Console.ReadLine()));
-            Console.WriteLine("add element ");
-            queue.Enqueue(int.Parse(Console.ReadLine()));
-            Console.WriteLine("add element ");
-            queue.Enqueue(int.Parse(Console.ReadLine()));
-
+            var queue = new Queue<int>();
+            AddElementsQueue(queue);
+            AddElementsQueue(queue);
+            AddElementsQueue(queue);
             queue = new Queue<int>(queue.OrderBy(q => q));
-            reverseQueue(queue);
+            ReverseQueue(queue);
             GetMaxValue(queue);
             Console.WriteLine("Before deletion:");
 
@@ -102,7 +97,7 @@ namespace Project1.Task10_homework
                 Console.WriteLine(it);
             }
 
-            DeleteMaxValue(queue);
+            DeleteFirstValue(queue);
             Console.WriteLine("After deletion:");
 
             foreach (var it in queue)
@@ -115,12 +110,9 @@ namespace Project1.Task10_homework
             Console.WriteLine("---stack---");
             var myStack = new Stack<int>();
             Console.WriteLine("Enter values:");
-            Console.WriteLine("First value:");
-            myStack.Push(int.Parse(Console.ReadLine()));
-            Console.WriteLine("Enter the second value:");
-            myStack.Push(int.Parse(Console.ReadLine()));
-            Console.WriteLine("Enter the second value:");
-            myStack.Push(int.Parse(Console.ReadLine()));
+            AddElementsStack(myStack);
+            AddElementsStack(myStack);
+            AddElementsStack(myStack);
             Console.WriteLine("in reverse order:");
             foreach (var item in myStack)
             {
@@ -138,7 +130,7 @@ namespace Project1.Task10_homework
             //Create two lists, each with 10 values.The first list is of type int, where the values are not in order.the second list is of type string, the values are also not alphabetically specified. Write a method that performs sorting operations on the two lists the int list in ascending and the string list in descending order. Then this method merges the lists into a dictionary.Output the resulting word to the console *
             var myListF = new List<int>() { 4, 3, 7, 8, 6 };
             var myListG = new List<string>() { "aka", "maka", "saka", "lola", "kola" };
-            SortMerge(myListF, myListG);
+            MergeListsToDic(myListF, myListG);
 
             //            Create a City class where there are fields int population, double area.Create a dictionary where Key is the name of the city and Value is the corresponding name of the cityand the object of type City. Create 5 elements for the dictionary. 
             //Sort the dictionary by city area and display it on your console
@@ -150,22 +142,42 @@ namespace Project1.Task10_homework
             myCity.Add("mika", new City(24, 355.2));
             myCity.Add("Lala", new City(44, 445.4));
             myCity.Add("Saka", new City(54, 555.2));
+            
+            
             var sorted = myCity.OrderBy(x => x.Value.Area);
+            var dictionary = sorted.ToDictionary(x => x.Key, x => x.Value);
+            
             Console.WriteLine("sorted dictionary by area:");
-            foreach (var item in sorted)
+            foreach (var item in dictionary)
             {
-                Console.WriteLine(item.ToString());
+                Console.WriteLine($" key : {item.Key}  value : {item.Value}");
             }
             var reversed = myCity.OrderByDescending(x => x.Value.Population);
-            Console.WriteLine("decending order by population");
-            foreach (var item in reversed)
+            dictionary = reversed.ToDictionary(x=>x.Key, x=>x.Value);
+            Console.WriteLine("descending order by population");
+            foreach (var item in dictionary)
             {
-                Console.WriteLine(item.ToString());
+                Console.WriteLine($" key : {item.Key}  value : {item.Value}");
             }
             double sum = myCity.Sum(v => v.Value.Area);
             Console.WriteLine($"Sum of area:{sum}");
         }
-        public static void SortMerge(List<int> i, List<string> s)
+
+        public static void AddElementsStack(Stack <int> s)
+        {
+            Console.WriteLine("First value:");
+            s.Push(int.Parse(Console.ReadLine()));
+
+        }
+
+        public static void AddElementsQueue(Queue<int> s)
+        {
+            Console.WriteLine("First value:");
+            s.Enqueue(int.Parse(Console.ReadLine()));
+
+        }
+
+        public static void MergeListsToDic(List<int> i, List<string> s)
         {
             i.Sort();
             s.Sort();
@@ -178,7 +190,6 @@ namespace Project1.Task10_homework
                     dic[key] = value;
                     s.Remove(value);
                     break;
-
                 }
             }
             foreach (var item2 in dic)
@@ -187,27 +198,27 @@ namespace Project1.Task10_homework
             }
         }
 
-        public static void reverseQueue(Queue<int> q)
+        public static void ReverseQueue(Queue<int> q)
         {
-            if (q.Count == 0)
+            if (!q.Any())
                 return;
-            int fr = (int)q.Peek();
+            var fr = (int)q.Peek();
             q.Dequeue();
-            reverseQueue(q);
+            ReverseQueue(q);
             q.Enqueue(fr);
         }
 
         public static void GetMaxValue(Queue<int> q)
         {
-            Console.WriteLine("Max element:" + q.Peek());
+            Console.WriteLine($"Max element: {q.Peek()}");
         }
 
-        public static void DeleteMaxValue(Queue<int> q)
+        public static void DeleteFirstValue(Queue<int> q)
         {
-            Console.WriteLine("Max element:" + q.Dequeue());
+            Console.WriteLine($"Max element: {q.Dequeue()}");
         }
 
-        public static void SumInt(List<int> list)
+        public static void SumEvenNumbers(List<int> list)
         {
             int sum = 0;
             for (int i = 0; i < list.Count; i++)
@@ -228,11 +239,11 @@ namespace Project1.Task10_homework
             }
         }
 
-        public static void FindTheWord(List<string> list, int length)
+        public static void FindTheWordByLength(List<string> list, int length)
         {
             for (int i = 0; i < list.Count; i++)
             {
-                string a = list[i].ToString();
+                string a = list[i];
                 if (a.Length == length)
                 {
                     Console.WriteLine(a);
