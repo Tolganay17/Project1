@@ -118,15 +118,6 @@ namespace Project1.Task11_homework
             {
                 Console.WriteLine(l);
             }
-
-
-
-
-
-
-
-
-
         }
     }
 }
