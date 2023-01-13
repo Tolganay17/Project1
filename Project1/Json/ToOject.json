@@ -1,0 +1,13 @@
+﻿{
+  "PersonName": "Klara",
+  "Age": 29,
+  "IsMarried": true,
+  "Date": "2023-01-13T03:27:04.2139642+02:00",
+  "car": [
+    {
+      "CarName": "Toyota",
+      "Year": 2016,
+      "Wheels": 4
+    }
+  ]
+}
