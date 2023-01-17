@@ -61,7 +61,7 @@ namespace MainProject
                 }
             }
         }
-     public void addEmp(string firstName, string lastName, string position, int age)
+        public void addEmp(string firstName, string lastName, string position, int age)
         {
             var arr = employees.ToList();
             var empp = new Employee(firstName, lastName, position, age);
@@ -69,7 +69,5 @@ namespace MainProject
             employees = arr.ToArray();
             Console.WriteLine("Employee is added");
         }
-
-
     }
 }

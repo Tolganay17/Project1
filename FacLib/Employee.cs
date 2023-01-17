@@ -4,7 +4,6 @@ namespace EmpLib
 {
     public class Employee
     {
-       
         private string firstName;
 
         public string FirstName
@@ -39,7 +38,7 @@ namespace EmpLib
 
         public Employee() { }
         public Employee(string firstName)
-        { 
+        {
             this.firstName = firstName;
         }
 
@@ -49,48 +48,29 @@ namespace EmpLib
             this.lastName = lastName;
             this.position = position;
             this.age = age;
-         
-              
         }
 
-        
-        public void getAllInfoEmp() 
+        public void getAllInfoEmp()
         {
-           Console.WriteLine("First name: {0}", FirstName);
-           Console.WriteLine("Last name: {0}",LastName);
-           Console.WriteLine("Position: {0}", Position);
-           Console.WriteLine("Age: {0}", Age);
-         
-            }
-        
-         public virtual string SimWork()
-        {
-            return "I'm working!";
+            Console.WriteLine("First name: {0}", FirstName);
+            Console.WriteLine("Last name: {0}", LastName);
+            Console.WriteLine("Position: {0}", Position);
+            Console.WriteLine("Age: {0}", Age);
         }
 
-
-      
+        public virtual string SimWork() => "I'm working!";
     }
 
     public class Teacher : Employee
     {
-        public override string SimWork()
-        {
-            return "teacher is working!";
-        }
+        public override string SimWork() => "teacher is working!";
     }
     public class Actor : Employee
     {
-        public override string SimWork()
-        {
-            return "actor is working!";
-        }
+        public override string SimWork() => "actor is working!";
     }
     public class Lawyer : Employee
     {
-        public override string SimWork()
-        {
-            return "lawyer is working!";
-        }
+        public override string SimWork() => "lawyer is working!";
     }
 }
