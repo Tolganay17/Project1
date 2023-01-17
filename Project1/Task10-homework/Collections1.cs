@@ -22,11 +22,11 @@ namespace Project1.Task10_homework
             Console.WriteLine("List --1--");
             var myList = new List<int> { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
             var myListOfStrings = new List<string> { "alice", "wonderland", "in", "boku", "kira" };
-            SumEvenNumbers(myList);
+            Task1(myList);
 
             //2) Create a list containing at least 10 integers, call your method, and output the result.
             Console.WriteLine("List --2--");
-            Display(myList);
+            Task2(myList);
 
             // 3)Create a list of strings that contain words of different lengths.
             //Write a static method to output each word from a list of exactly 5 letters.
@@ -34,7 +34,7 @@ namespace Project1.Task10_homework
             Console.WriteLine("List --3--");
             Console.WriteLine("Write the length of word:");
             int length = int.Parse(Console.ReadLine());
-            FindTheWordByLength(myListOfStrings, length);
+            Task3(myListOfStrings, length);
 
             //Create a LinkedList and two items, insert a second item after each occurrence of the first item in the list.So, if the list is [2,4,3,2,8,2,5,1,2] and the elements are 2 and 10, the result is [2,10,4,3,2,10,8,2,10,5,1,2,10] 
             Console.WriteLine("LinkedList --1--");
@@ -43,14 +43,14 @@ namespace Project1.Task10_homework
             int a = 2; int b = 10;
             int i = 0;
             int count = 0;
-            LinkedList<int> list1 = new LinkedList<int>();
+            var list1 = new LinkedList<int>();
             while (i < linkedList.Count)
             {
                 if (linkedList.ElementAt(i) == a)
                 {
-                    initList.Insert(i + 1, b);
+                    initList.Insert(i ++ +1, b);
                 }
-                i++;
+                
             }
             int k = initList.Count - 1;
             if (initList.ElementAt(k) == a)
@@ -88,8 +88,8 @@ namespace Project1.Task10_homework
             AddElementsQueue(queue);
             AddElementsQueue(queue);
             queue = new Queue<int>(queue.OrderBy(q => q));
-            ReverseQueue(queue);
-            GetMaxValue(queue);
+            Task4(queue);
+            Task5(queue);
             Console.WriteLine("Before deletion:");
 
             foreach (var it in queue)
@@ -104,7 +104,7 @@ namespace Project1.Task10_homework
             {
                 Console.WriteLine(it);
             }
-            GetMaxValue(queue);
+           Task5(queue);
 
             //Write a program that takes three letters as input and displays them in reverse order. Use Stack.
             Console.WriteLine("---stack---");
@@ -130,13 +130,13 @@ namespace Project1.Task10_homework
             //Create two lists, each with 10 values.The first list is of type int, where the values are not in order.the second list is of type string, the values are also not alphabetically specified. Write a method that performs sorting operations on the two lists the int list in ascending and the string list in descending order. Then this method merges the lists into a dictionary.Output the resulting word to the console *
             var myListF = new List<int>() { 4, 3, 7, 8, 6 };
             var myListG = new List<string>() { "aka", "maka", "saka", "lola", "kola" };
-            MergeListsToDic(myListF, myListG);
+            Task6(myListF, myListG);
 
             //            Create a City class where there are fields int population, double area.Create a dictionary where Key is the name of the city and Value is the corresponding name of the cityand the object of type City. Create 5 elements for the dictionary. 
             //Sort the dictionary by city area and display it on your console
             //Browse the dictionary by population in reverse order and display it on your console
             //Count the total population of all cities and output to the console *
-            Dictionary<string, City> myCity = new Dictionary<string, City>();
+            var myCity = new Dictionary<string, City>();
             myCity.Add("Oku", new City(23, 456.5));
             myCity.Add("Aka", new City(34, 345.4));
             myCity.Add("mika", new City(24, 355.2));
@@ -177,7 +177,7 @@ namespace Project1.Task10_homework
 
         }
 
-        public static void MergeListsToDic(List<int> i, List<string> s)
+        public static void Task6(List<int> i, List<string> s)
         {
             i.Sort();
             s.Sort();
@@ -198,17 +198,17 @@ namespace Project1.Task10_homework
             }
         }
 
-        public static void ReverseQueue(Queue<int> q)
+        public static void Task4(Queue<int> q)
         {
             if (!q.Any())
                 return;
             var fr = (int)q.Peek();
             q.Dequeue();
-            ReverseQueue(q);
+            Task4(q);
             q.Enqueue(fr);
         }
 
-        public static void GetMaxValue(Queue<int> q)
+        public static void Task5(Queue<int> q)
         {
             Console.WriteLine($"Max element: {q.Peek()}");
         }
@@ -218,7 +218,7 @@ namespace Project1.Task10_homework
             Console.WriteLine($"Max element: {q.Dequeue()}");
         }
 
-        public static void SumEvenNumbers(List<int> list)
+        public static void Task1(List<int> list)
         {
             int sum = 0;
             for (int i = 0; i < list.Count; i++)
@@ -231,7 +231,7 @@ namespace Project1.Task10_homework
             Console.WriteLine(sum);
         }
 
-        public static void Display(List<int> list)
+        public static void Task2(List<int> list)
         {
             foreach (var item in list)
             {
@@ -239,7 +239,7 @@ namespace Project1.Task10_homework
             }
         }
 
-        public static void FindTheWordByLength(List<string> list, int length)
+        public static void Task3(List<string> list, int length)
         {
             for (int i = 0; i < list.Count; i++)
             {
