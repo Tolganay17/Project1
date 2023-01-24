@@ -2,21 +2,21 @@
   {
     "Id": 1,
     "Name": "Ryanair",
-    "Markup": 0.5
+    "MarkUp": 0.5
   },
   {
     "Id": 2,
     "Name": "Lufthansa",
-    "Markup": 5
+    "MarkUp": 5
   },
   {
     "Id": 3,
     "Name": "Qatar Airways",
-    "Markup": 7.8
+    "MarkUp": 7.8
   },
   {
     "Id": 4,
     "Name": "Belavia",
-    "Markup": 15
+    "MarkUp": 15
   }
 ]

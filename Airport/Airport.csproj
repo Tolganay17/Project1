@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
@@ -8,7 +8,30 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Json\airCarriers.json" />
+    <None Remove="Json\airCarriersCredentials.json" />
+    <None Remove="Json\flights.json" />
+    <None Remove="Json\passenger.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Json\airCarriers.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Json\airCarriersCredentials.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Json\flights.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Json\passenger.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Colorful.Console" Version="1.2.15" />
+    <PackageReference Include="Grpc.Core" Version="2.46.6" />
   </ItemGroup>
 
 </Project>
