@@ -1,0 +1,22 @@
+﻿[
+  {
+    "Id": 1,
+    "Name": "Ryanair",
+    "MarkUp": 0.5
+  },
+  {
+    "Id": 2,
+    "Name": "Lufthansa",
+    "MarkUp": 5
+  },
+  {
+    "Id": 3,
+    "Name": "Qatar Airways",
+    "MarkUp": 7.8
+  },
+  {
+    "Id": 4,
+    "Name": "Belavia",
+    "MarkUp": 15
+  }
+]

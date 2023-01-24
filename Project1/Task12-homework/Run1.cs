@@ -24,7 +24,7 @@ namespace Project1.Task12_homework
             string jsonString = JsonSerializer.Serialize(person);
             File.WriteAllText(fileName1, jsonString);
             var jsonText = File.ReadAllText(filename2);
-            var myNewPerson = JsonSerializer.Deserialize<Run1>(jsonText);
+            var myNewPerson = JsonSerializer.Deserialize<Person>(jsonText);
         }
     }
 }
